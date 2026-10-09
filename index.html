@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>神泉整体センター 先生比較表</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* Layout: 見出し → 悩みから選ぶ3列 → 横並び比較表（スマホは横スクロール、項目列固定） → 指名なしコース → 院情報 */
+:root{
+  --bg:#f5f6f4; --surface:#ffffff; --fg:#1d2422; --muted:#5d6764; --line:#dfe3e0;
+  --hayashi:#2f5f8a; --hayashi-soft:#e7eef5;
+  --horibe:#2f7a55; --horibe-soft:#e5f2ea;
+  --ouchi:#8a3f6b; --ouchi-soft:#f4e8ef;
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141917; --surface:#1c2220; --fg:#e8ece9; --muted:#9aa5a1; --line:#2e3633;
+  --hayashi:#86b4dd; --hayashi-soft:#1d2a36;
+  --horibe:#7ccaa1; --horibe-soft:#1a2c23;
+  --ouchi:#dc9cc2; --ouchi-soft:#2f1f29; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141917; --surface:#1c2220; --fg:#e8ece9; --muted:#9aa5a1; --line:#2e3633;
+  --hayashi:#86b4dd; --hayashi-soft:#1d2a36;
+  --horibe:#7ccaa1; --horibe-soft:#1a2c23;
+  --ouchi:#dc9cc2; --ouchi-soft:#2f1f29; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.75;padding:0 16px}
+.wrap{max-width:1080px;margin:0 auto;padding-block:40px 56px;display:grid;gap:40px}
+h1,h2{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.35}
+h1{font-size:clamp(1.7rem,4.5vw,2.5rem);font-weight:800}
+h2{font-size:1.35rem;font-weight:800}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;color:var(--muted);margin:0 0 6px}
+.lead{color:var(--muted);margin:10px 0 0;max-width:40em}
+
+/* 悩みから選ぶ */
+.pick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.pick{grid-template-columns:1fr}}
+.pc{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:6px;padding:20px 20px 18px;display:grid;gap:8px;align-content:start}
+.pc .if{font-size:.8rem;font-weight:700;color:var(--c);letter-spacing:.06em}
+.pc .worry{font-family:var(--display);font-size:1.25rem;font-weight:800;line-height:1.45}
+.pc .then{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.pc .name{font-family:var(--display);font-size:1.6rem;font-weight:800;color:var(--c)}
+.pc .kind{font-size:.85rem;color:var(--muted)}
+.pc .copy{margin:0;font-size:.92rem}
+.hayashi{--c:var(--hayashi);--s:var(--hayashi-soft)}
+.horibe{--c:var(--horibe);--s:var(--horibe-soft)}
+.ouchi{--c:var(--ouchi);--s:var(--ouchi-soft)}
+
+/* 比較表 */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:760px}
+th,td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+tr:last-child th,tr:last-child td{border-bottom:0}
+tbody th{width:128px;font-size:.82rem;font-weight:700;color:var(--muted);letter-spacing:.04em;background:var(--surface);position:sticky;left:0;z-index:1}
+thead th{background:var(--s);border-bottom:2px solid var(--c);padding-block:18px}
+thead th.blank{background:var(--surface);border-bottom:2px solid var(--line);position:sticky;left:0;z-index:2}
+thead .nm{font-family:var(--display);font-size:1.45rem;font-weight:800;color:var(--c);display:block;line-height:1.2}
+thead .sub{font-size:.8rem;color:var(--muted);font-weight:500}
+td{width:30%}
+.catch{font-family:var(--display);font-weight:800;font-size:1.05rem;line-height:1.5}
+.catch small{display:block;font-family:var(--body);font-weight:400;font-size:.8rem;color:var(--muted);margin-top:4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:.8rem;padding:2px 9px;border-radius:999px;background:var(--bg);border:1px solid var(--line);white-space:nowrap}
+.tag.main{background:var(--s);border-color:transparent;color:var(--c);font-weight:700}
+.price{font-variant-numeric:tabular-nums;display:grid;gap:2px}
+.price .row{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.price .yen{font-size:1.2rem;font-weight:700}
+.price .lbl{font-size:.82rem;color:var(--muted)}
+.note{font-size:.8rem;color:var(--muted)}
+ul.pts{margin:0;padding-left:1.1em}
+.hint{font-size:.8rem;color:var(--muted);margin:8px 0 0}
+@media (min-width:800px){.hint{display:none}}
+
+/* 指名なし & 院情報 */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:20px;display:grid;gap:10px;align-content:start}
+.box h3{margin:0;font-size:1rem}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0;font-variant-numeric:tabular-nums}
+.kv dt{color:var(--muted);font-size:.85rem}
+.kv dd{margin:0}
+a{color:var(--hayashi)}
+a:focus-visible{outline:2px solid var(--hayashi);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">SHINSEN SEITAI CENTER ／ 施術者比較</p>
+    <h1>あなたの不調に合う先生は？</h1>
+    <p class="lead">神泉整体センターの指名できる3人の先生を、得意分野・施術スタイル・料金で並べました。お悩みに近いところから選んでください。</p>
+  </header>
+
+  <section aria-labelledby="pick-h">
+    <p class="eyebrow">STEP 1</p>
+    <h2 id="pick-h" style="margin-bottom:14px">お悩みから選ぶ</h2>
+    <div class="pick">
+      <div class="pc hayashi">
+        <span class="if">こんなお悩みなら</span>
+        <span class="worry">慢性の肩こり・腰痛<br>関節の痛み</span>
+        <div class="then"><span class="name">林</span><span class="kind">バランス整体</span></div>
+        <p class="copy">長年のコリと痛みを、全身のバランスから根本改善。</p>
+      </div>
+      <div class="pc horibe">
+        <span class="if">こんなお悩みなら</span>
+        <span class="worry">ダイエット<br>スポーツ障害</span>
+        <div class="then"><span class="name">堀部</span><span class="kind">スポーツ整体</span></div>
+        <p class="copy">施術＋運動指導で、動ける・痩せやすい身体へ。</p>
+      </div>
+      <div class="pc ouchi">
+        <span class="if">こんなお悩みなら</span>
+        <span class="worry">妊活・睡眠<br>自律神経の不調</span>
+        <div class="then"><span class="name">大内</span><span class="kind">鍼灸整体</span></div>
+        <p class="copy">鍼灸で自律神経を整え、眠れる・整う身体へ。</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="cmp-h">
+    <p class="eyebrow">STEP 2</p>
+    <h2 id="cmp-h" style="margin-bottom:14px">先生比較表</h2>
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr>
+            <th class="blank" scope="col"><span class="sr" style="font-size:.8rem;color:var(--muted)">項目</span></th>
+            <th scope="col" class="hayashi"><span class="nm">林 先生</span><span class="sub">バランス整体 ／ ROOM 402</span></th>
+            <th scope="col" class="horibe"><span class="nm">堀部 先生</span><span class="sub">スポーツ整体 ／ ROOM 401</span></th>
+            <th scope="col" class="ouchi"><span class="nm">大内 先生</span><span class="sub">鍼灸整体 ／ ROOM 303</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">キャッチコピー</th>
+            <td class="hayashi"><div class="catch">長年のコリと痛みを、根っこから。<small>サイト掲載：「根本改善を目指す方へ」</small></div></td>
+            <td class="horibe"><div class="catch">動ける身体で、痩せる・勝つ。<small>サイト掲載：「もっと動ける身体・競技復帰を目指す方へ」</small></div></td>
+            <td class="ouchi"><div class="catch">眠れる身体、整う自律神経。<small>サイト掲載：「身体の個性を活かす整体」</small></div></td>
+          </tr>
+          <tr>
+            <th scope="row">こんな方に</th>
+            <td class="hayashi"><div class="tags"><span class="tag main">慢性の肩こり</span><span class="tag main">慢性腰痛</span><span class="tag">股関節痛</span><span class="tag">膝の痛み</span><span class="tag">肩の痛み</span><span class="tag">関節の不調</span></div></td>
+            <td class="horibe"><div class="tags"><span class="tag main">ダイエット</span><span class="tag main">スポーツ障害</span><span class="tag">競技復帰</span><span class="tag">コンディショニング</span><span class="tag">パフォーマンス向上</span></div></td>
+            <td class="ouchi"><div class="tags"><span class="tag main">妊活</span><span class="tag main">睡眠・不眠</span><span class="tag main">自律神経</span><span class="tag">首・肩こり</span><span class="tag">腰の不調</span><span class="tag">疲労</span></div></td>
+          </tr>
+          <tr>
+            <th scope="row">ベースの考え方</th>
+            <td>西洋医学に基づいた整体</td>
+            <td>スポーツ医学に基づいた整体</td>
+            <td>東洋医学に基づいた鍼灸</td>
+          </tr>
+          <tr>
+            <th scope="row">施術の特徴</th>
+            <td><ul class="pts"><li>全身のバランスを分析</li><li>施術前後の変化を確認</li><li>根本改善を重視</li></ul></td>
+            <td><ul class="pts"><li>動作のクセ・弱点を評価</li><li>施術＋運動指導</li><li>再発予防・競技復帰サポート</li><li>パワーラック等の設備あり。パーソナルトレーニングも相談可</li></ul></td>
+            <td><ul class="pts"><li>問診を何より重視</li><li>全身を総合的にケア</li><li>根本原因へアプローチ</li><li>自律神経のバランスを整える</li></ul></td>
+          </tr>
+          <tr>
+            <th scope="row">資格</th>
+            <td>柔道整復師（国家資格）</td>
+            <td>NSCA-CSCS<br><span class="note">認定ストレングス＆コンディショニングスペシャリスト</span></td>
+            <td>はり師・きゅう師（国家資格）</td>
+          </tr>
+          <tr>
+            <th scope="row">施術歴</th>
+            <td><strong>28年</strong> <span class="note">（テニス経験）</span></td>
+            <td><strong>20年</strong> <span class="note">（野球・ソフトボール経験）</span></td>
+            <td><strong>20年</strong> <span class="note">（バスケットボール経験）</span></td>
+          </tr>
+          <tr>
+            <th scope="row">指名メニュー</th>
+            <td>バランス整体</td>
+            <td>スポーツ整体</td>
+            <td>鍼灸整体</td>
+          </tr>
+          <tr>
+            <th scope="row">料金（税込）</th>
+            <td><div class="price"><div class="row"><span class="lbl">1回</span><span class="yen">¥12,100</span></div><span class="note">所要時間はご予約時にご確認ください</span></div></td>
+            <td><div class="price"><div class="row"><span class="lbl">60分</span><span class="yen">¥8,800</span></div><div class="row"><span class="lbl">90分</span><span class="yen">¥12,100</span></div></div></td>
+            <td><div class="price"><div class="row"><span class="lbl">初回 90分</span><span class="yen">¥13,200</span></div><div class="row"><span class="lbl">再診 60分</span><span class="yen">¥8,800</span></div></div></td>
+          </tr>
+          <tr>
+            <th scope="row">詳しく見る</th>
+            <td><a href="https://shibuya-seitai.com/staff#hayashi">林先生のプロフィール</a></td>
+            <td><a href="https://shibuya-seitai.com/staff#horibe">堀部先生のプロフィール</a></td>
+            <td><a href="https://shibuya-seitai.com/staff#ouchi">大内先生のプロフィール</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="hint">← 表は横にスクロールできます</p>
+  </section>
+
+  <section class="two" aria-label="指名なしコースと院情報">
+    <div class="box">
+      <p class="eyebrow" style="margin:0">迷ったら</p>
+      <h3>総合整体コース（指名なし）</h3>
+      <dl class="kv">
+        <dt>整体ショート</dt><dd>初回60分 ¥7,700 ／ 再診50分 ¥6,600</dd>
+        <dt>整体ロング</dt><dd>初回90分 ¥9,900 ／ 再診80分 ¥8,800</dd>
+      </dl>
+      <span class="note">担当者は指名できません。急な痛みはショート、長年の不調はロングがおすすめです。</span>
+    </div>
+    <div class="box">
+      <p class="eyebrow" style="margin:0">ACCESS</p>
+      <h3>神泉整体センター</h3>
+      <dl class="kv">
+        <dt>住所</dt><dd>東京都渋谷区円山町26-8 吉田ビル4階</dd>
+        <dt>アクセス</dt><dd>京王井の頭線「神泉駅」徒歩1分 ／ 渋谷駅 徒歩5分</dd>
+        <dt>営業</dt><dd>10:00〜21:00 年中無休</dd>
+        <dt>電話</dt><dd>03-5489-0425（受付 10:00〜20:00）</dd>
+        <dt>支払い</dt><dd>現金 ／ PayPay</dd>
+      </dl>
+      <span class="note">LINE予約は24時間受付：<a href="https://lin.ee/AfuRTMr">LINEで予約</a> ／ <a href="https://shibuya-seitai.com/reserve">ネット予約</a></span>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>
